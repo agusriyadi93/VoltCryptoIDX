@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltCryptoIDX</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0e0e0e; color: white; text-align: center; padding: 20px; }
+        .signal { font-size: 2em; padding: 20px; margin-top: 20px; border-radius: 10px; display: inline-block; }
+        .call { background-color: green; }
+        .put { background-color: red; }
+    </style>
+</head>
+<body>
+    <h1>VoltCryptoIDX</h1>
+    <p>Sinyal trading 1 menit untuk CRYPTO IDX</p>
+    <div id="signal" class="signal">Menunggu sinyal...</div>
+
+    <script>
+        function getRandomSignal() {
+            const signal = Math.random() > 0.5 ? 'CALL' : 'PUT';
+            const signalBox = document.getElementById('signal');
+            if (signal === 'CALL') {
+                signalBox.className = 'signal call';
+                signalBox.innerText = 'CALL';
+            } else {
+                signalBox.className = 'signal put';
+                signalBox.innerText = 'PUT';
+            }
+        }
+        setInterval(getRandomSignal, 60000); // Update tiap 1 menit
+        getRandomSignal(); // Panggil awal
+    </script>
+</body>
+</html>
